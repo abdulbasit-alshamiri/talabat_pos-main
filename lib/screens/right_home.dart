@@ -75,136 +75,134 @@ class _RightHomeState extends State<RightHome> {
                       child: ListView.builder(
                         itemCount: orderService.getOrder.items!.length,
                         itemBuilder: (context, index) {
-                          return Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(children: [
-                                _buildCachedNetworkImage(""),
-                                SpacesApp.spaceW_10,
-                                Flexible(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            orderService
-                                                .getOrder.items![index].name
-                                                .toString(),
-                                            style: StylesApp.itemNameStyle,
-                                          ),
-                                          IconButton(
-                                              onPressed: () {
-                                                orderService.deleteItem(index);
-                                              },
-                                              icon: Icon(
-                                                Icons.delete,
-                                                color: AppColors.scondaryColor,
-                                                size: 20,
-                                              ))
-                                        ],
-                                      ),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          softWrap: false,
-                                          "Lorem Ipsum is simply dummy text printing and Lorem Ipsum printing  Lorem Ipsum ",
-                                          maxLines: 4,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: StylesApp.normalStyle.copyWith(
-                                              overflow: TextOverflow.ellipsis,
-                                              fontSize: 14,
-                                              color: Colors.black54),
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(children: [
+                              _buildCachedNetworkImage(""),
+                              SpacesApp.spaceW_10,
+                              Flexible(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          orderService
+                                              .getOrder.items![index].name
+                                              .toString(),
+                                          style: StylesApp.itemNameStyle,
                                         ),
+                                        IconButton(
+                                            onPressed: () {
+                                              orderService.deleteItem(index);
+                                            },
+                                            icon: Icon(
+                                              Icons.delete,
+                                              color: AppColors.scondaryColor,
+                                              size: 20,
+                                            ))
+                                      ],
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        softWrap: false,
+                                        "Lorem Ipsum is simply dummy text printing and Lorem Ipsum printing  Lorem Ipsum ",
+                                        maxLines: 4,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: StylesApp.normalStyle.copyWith(
+                                            overflow: TextOverflow.ellipsis,
+                                            fontSize: 14,
+                                            color: Colors.black54),
                                       ),
-                                      SpacesApp.spaceH_5,
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              InkWell(
-                                                  onTap: () {
-                                                    if (orderService
-                                                            .getOrder
-                                                            .items![index]
-                                                            .itemsCount >
-                                                        1) {
-                                                      setState(() {
-                                                        orderService
-                                                            .getOrder
-                                                            .items![index]
-                                                            .itemsCount -= 1;
-                                                        orderService.calc();
-                                                      });
-                                                    }
-                                                  },
-                                                  child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color: AppColors
-                                                            .primaryColor,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5),
-                                                      ),
-                                                      child: const Icon(
-                                                          color: Colors.white,
-                                                          Icons.remove))),
-                                              SpacesApp.spaceW_10,
-                                              Text(
-                                                orderService.getOrder
-                                                    .items![index].itemsCount
-                                                    .toString(),
-                                                style: StylesApp.itemNameStyle,
-                                              ),
-                                              SpacesApp.spaceW_10,
-                                              InkWell(
+                                    ),
+                                    SpacesApp.spaceH_5,
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            InkWell(
                                                 onTap: () {
-                                                  setState(() {
-                                                    orderService
-                                                        .getOrder
-                                                        .items![index]
-                                                        .itemsCount += 1;
-                                                    orderService.calc();
-                                                  });
+                                                  if (orderService
+                                                          .getOrder
+                                                          .items![index]
+                                                          .itemsCount >
+                                                      1) {
+                                                    setState(() {
+                                                      orderService
+                                                          .getOrder
+                                                          .items![index]
+                                                          .itemsCount -= 1;
+                                                      orderService.calc();
+                                                    });
+                                                  }
                                                 },
                                                 child: Container(
                                                     decoration: BoxDecoration(
                                                       color: AppColors
                                                           .primaryColor,
                                                       borderRadius:
-                                                          BorderRadius.circular(
-                                                              5),
+                                                          BorderRadius
+                                                              .circular(5),
                                                     ),
                                                     child: const Icon(
                                                         color: Colors.white,
-                                                        Icons.add)),
-                                              ),
-                                            ],
-                                          ),
-                                          Text(
-                                            " ${orderService.getOrder.items![index].price.toString()}\$",
-                                            style: StylesApp.itemNameStyle
-                                                .copyWith(
-                                                    fontSize: 20,
-                                                    color: Colors.black87,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ]),
-                            ),
+                                                        Icons.remove))),
+                                            SpacesApp.spaceW_10,
+                                            Text(
+                                              orderService.getOrder
+                                                  .items![index].itemsCount
+                                                  .toString(),
+                                              style: StylesApp.itemNameStyle,
+                                            ),
+                                            SpacesApp.spaceW_10,
+                                            InkWell(
+                                              onTap: () {
+                                                setState(() {
+                                                  orderService
+                                                      .getOrder
+                                                      .items![index]
+                                                      .itemsCount += 1;
+                                                  orderService.calc();
+                                                });
+                                              },
+                                              child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: AppColors
+                                                        .primaryColor,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5),
+                                                  ),
+                                                  child: const Icon(
+                                                      color: Colors.white,
+                                                      Icons.add)),
+                                            ),
+                                          ],
+                                        ),
+                                        Text(
+                                          " ${orderService.getOrder.items![index].price.toString()}\$",
+                                          style: StylesApp.itemNameStyle
+                                              .copyWith(
+                                                  fontSize: 20,
+                                                  color: Colors.black87,
+                                                  fontWeight:
+                                                      FontWeight.bold),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ]),
                           );
 
                           // return ListTile(

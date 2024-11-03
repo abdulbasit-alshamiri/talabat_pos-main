@@ -57,12 +57,12 @@ ResponsiveChildGrid({required BuildContext context}) {
 
   //  bigMobile
   else if (size.width > 600 && size.width < 800) {
-    return 1.0;
+    return 0.7;
   }
 
   //  mobile
   else {
-    return 0.6;
+    return 0.3;
   }
 }
 

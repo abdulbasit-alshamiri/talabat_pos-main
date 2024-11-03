@@ -58,8 +58,9 @@ class _LeftHomeState extends State<LeftHome> {
     }
 
     return Padding(
-      padding: const EdgeInsets.all(30.0),
-      child: Column(
+      padding: (AppDimension(context).width < 800)
+          ? const EdgeInsets.all(8.0)
+          : const EdgeInsets.all(30.0),      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
@@ -247,10 +248,9 @@ class _LeftHomeState extends State<LeftHome> {
                                 bigTablet: 3,
                                 desktop: 4,
                                 bigDesktop: 5),
-                            crossAxisSpacing: 13,
-                            mainAxisSpacing: 13,
-                            childAspectRatio:
-                                ResponsiveChildGrid(context: context)),
+                            crossAxisSpacing: 6,
+                            mainAxisSpacing: 4,
+                            childAspectRatio:1.1),
                     itemBuilder: (BuildContext context, index) {
                       return Column(
                         mainAxisSize: MainAxisSize.min,
